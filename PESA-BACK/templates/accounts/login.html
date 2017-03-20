@@ -1,0 +1,116 @@
+{% extends 'auth_base.html' %}
+
+
+{% block content  %}
+
+   <!-- Start: Content-Wrapper -->
+    <section id="content_wrapper">
+
+      <!-- begin canvas animation bg -->
+      <div id="canvas-wrapper">
+        <canvas id="demo-canvas"></canvas>
+      </div>
+
+      <!-- Begin: Content -->
+      <section id="content" class="">
+
+        <div class="admin-form theme-info mw700" style="margin-top: 3%;" id="login1">
+
+          <div class="row mb15 table-layout">
+
+            <div class="col-xs-6 va-m pln">
+              <a href="dashboard.html" title="Return to Dashboard">
+                <img src="assets/img/logos/logo_white.png" title="{{APP_NAME}}" class="img-responsive w250">
+              </a>
+            </div>
+
+            <div class="col-xs-6 text-right va-b pr5">
+              <div class="login-links">
+                <a href="#" class="active" title="Sign In">Sign In</a>
+                <span class="text-white"> | </span>
+                <a href="{% url 'registration_register' %}"  title="Register">Register</a>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="panel panel-info mt10 br-n">
+          {% include 'form-error.html' %}
+      
+
+            <form method="post" action="{% url 'login' %}" id="login_form">
+            {% csrf_token %}
+              <div class="panel-body p25 bg-light">
+                <div class="section-divider mt10 mb40">
+                  <span>Welcome Back!</span>
+                </div>
+                <!-- .section-divider -->
+
+               
+
+                <div class="section">
+                  <label for="email" class="field prepend-icon">
+                    <input type="email" name="username" id="username" required="required" class="gui-input" placeholder="Email address">
+                    <label for="email" class="field-icon">
+                      <i class="fa fa-envelope"></i>
+                    </label>
+                  </label>
+                </div>
+                <!-- end section -->
+
+               
+
+                <div class="section">
+                  <label for="password" class="field prepend-icon">
+                    <input type="password" required="required" name="password" id="password" class="gui-input" placeholder="password">
+                    <label for="password" class="field-icon">
+                      <i class="fa fa-unlock-alt"></i>
+                    </label>
+                  </label>
+                </div>
+                <!-- end section -->
+
+                
+
+       <div class="section mb15">
+                  <label class="option block mt15">
+                    <span class=""></span>Don't have an account?
+                    <a href="{% url 'registration_register' %}" class="theme-link"> Sign up. </a>
+                  </label>
+                </div>
+                <!-- end section -->
+
+                <!-- .section-divider -->
+
+               
+
+              </div>
+              <!-- end .form-body section -->
+              <div class="panel-footer clearfix">
+                <button type="submit" class="button btn-primary pull-right">Sign in to your account</button>
+              </div>
+              <!-- end .form-footer section -->
+            </form>
+          </div>
+        </div>
+
+      </section>
+      <!-- End: Content -->
+
+    </section>
+    <!-- End: Content-Wrapper -->
+{% load validation_tags %}
+<!-- Form Validation -->
+<script type="text/javascript" src="{{STATIC_URL}}vendor/jquery/jquery.form-validation.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#login_form").validate({
+
+    rules:{% validation_rules  form %} ,
+    messages: {% validation_messages form %} ,
+
+    });
+    });
+</script>
+{% endblock %}

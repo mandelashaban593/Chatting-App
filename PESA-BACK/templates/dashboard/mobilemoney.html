@@ -1,0 +1,261 @@
+{% extends 'dashboard_base.html' %}
+
+
+{% block content  %}
+
+
+ <!-- begin: .tray-center -->
+        <div class="tray tray-center">
+
+          <!-- dashboard tiles -->
+          <div class="row">
+            <div class="col-sm-4 col-xl-3">
+              <div class="panel panel-tile text-center br-a br-grey">
+                <div class="panel-body">
+                  <h1 class="fs30 mt5 mbn">1,426</h1>
+                  <h6 class="text-system">NEW ORDERS</h6>
+                </div>
+                <div class="panel-footer br-t p12">
+                  <span class="fs11">
+                    <i class="fa fa-arrow-up pr5"></i> 3% INCREASE
+                    <b>1W AGO</b>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4 col-xl-3">
+              <div class="panel panel-tile text-center br-a br-grey">
+                <div class="panel-body">
+                  <h1 class="fs30 mt5 mbn">63,262</h1>
+                  <h6 class="text-success">TOTAL SALES GROSS</h6>
+                </div>
+                <div class="panel-footer br-t p12">
+                  <span class="fs11">
+                    <i class="fa fa-arrow-up pr5"></i> 2.7% INCREASE
+                    <b>1W AGO</b>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4 col-xl-3">
+              <div class="panel panel-tile text-center br-a br-grey">
+                <div class="panel-body">
+                  <h1 class="fs30 mt5 mbn">248</h1>
+                  <h6 class="text-warning">PENDING SHIPMENTS</h6>
+                </div>
+                <div class="panel-footer br-t p12">
+                  <span class="fs11">
+                    <i class="fa fa-arrow-up pr5 text-success"></i> 1% INCREASE
+                    <b>1W AGO</b>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3 col-xl-3 visible-xl">
+              <div class="panel panel-tile text-center br-a br-grey">
+                <div class="panel-body">
+                  <h1 class="fs30 mt5 mbn">6,718</h1>
+                  <h6 class="text-danger">UNIQUE VISITS</h6>
+                </div>
+                <div class="panel-footer br-t p12">
+                  <span class="fs11">
+                    <i class="fa fa-arrow-down pr5 text-danger"></i> 6% DECREASE
+                    <b>1W AGO</b>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+
+          <!-- recent Transactions table -->
+          <div class="panel">
+            <div class="panel-menu admin-form theme-primary">
+              <div class="row">
+                <div class="col-md-4">
+                  <label for="filter-datepicker" class="field prepend-picker-icon">
+                    <input type="text" value="02/03/2015" id="filter-datepicker" name="filter-datepicker" class="gui-input" placeholder="Filter by Date">
+                  </label>
+                </div>
+                <div class="col-md-4">
+                  <label class="field select">
+                    <select id="filter-status" name="filter-status">
+                      <option value="0">Filter by Status</option>
+                      <option value="1">Successful</option>
+                      <option value="2">Pending</option>
+                      <option value="3">Failed</option>
+                    </select>
+                    <i class="arrow double"></i>
+                  </label>
+                </div>
+                <div class="col-md-4">
+                  <label class="field select">
+                    <select id="filter-customer" name="filter-customer">
+                      <option value="0">Filter Telcom Network</option>
+                      <option value="1">MTN</option>
+                      <option value="2">Airtel</option>
+                    </select>
+                    <i class="arrow double"></i>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="panel-body pn">
+              <div class="table-responsive">
+                <table class="table admin-form theme-warning tc-checkbox-1 fs13">
+                  <thead>
+                    <tr class="bg-light">
+                    <th class="">Transaction ID</th>
+                      <th class="">Transaction Date</th>
+                      <th class="">Customer</th>
+                      <th class="">Notes</th>
+                      <th class="text-center">Transaction Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                  {% for transaction in transactions %}
+                    <tr>
+                     <td class="">#50362061</td>
+
+                      <td class="">
+                        01/11/2015
+                      </td>
+                      
+                      <td class="w175">
+                        <img class="img-responsive mw20 ib mr10" title="user" src="assets/img/avatars/1.jpg">
+                        <span>Louis Renold</span>
+                      </td>
+                      <td class="">Lorem ipsum dolor sit amet, adipiscing eli</td>
+                      <td class="text-right">
+                        <div class="btn-group text-right">
+                          <button type="button" class="btn btn-info br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Pending
+                          </button>
+                          <!--
+						 <button type="button" class="btn btn-success br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Successful
+                          </button>
+                            <button type="button" class="btn btn-danger br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Failed
+                          </button>
+                          -->
+                        </div>
+                      </td>
+                    </tr>
+
+                    {% endfor %}
+
+
+                
+                   
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- end: .tray-center -->
+
+        <!-- begin: .tray-right -->
+        <aside class="tray tray-right tray290" data-tray-height="match">
+
+          <!-- menu quick links -->
+          <div class="admin-form">
+
+            <h4> Filter Transactions</h4>
+
+            <hr class="short">
+
+            <div class="section mb15">
+              <label for="Transaction-id" class="field prepend-icon">
+                <input type="text" name="Transaction-id" id="Transaction-id" class="gui-input" placeholder="Transaction ID #">
+                <label for="Transaction-id" class="field-icon">
+                  <i class="fa fa-tag"></i>
+                </label>
+              </label>
+            </div>
+
+            <h5><small>Price Range($)</small></h5>
+            <div class="section row mb15">
+              <div class="col-md-6">
+                <label for="price1" class="field prepend-icon">
+                  <input type="text" name="price1" id="price1" class="gui-input" placeholder="0">
+                  <label for="price1" class="field-icon">
+                    <i class="fa fa-usd"></i>
+                  </label>
+                </label>
+              </div>
+              <div class="col-md-6">
+                <label for="price2" class="field prepend-icon">
+                  <input type="text" name="price2" id="price2" class="gui-input" placeholder="1000">
+                  <label for="price2" class="field-icon">
+                    <i class="fa fa-usd"></i>
+                  </label>
+                </label>
+              </div>
+            </div>
+
+            <h5><small>Sales Date</small></h5>
+            <div class="section row">
+              <div class="col-md-6">
+                <label for="date1" class="field prepend-icon">
+                  <input type="text" name="date1" id="date1" class="gui-input" placeholder="01/01/15">
+                  <label for="date1" class="field-icon">
+                    <i class="fa fa-calendar"></i>
+                  </label>
+                </label>
+              </div>
+              <div class="col-md-6">
+                <label for="date2" class="field prepend-icon">
+                  <input type="text" name="date2" id="date2" class="gui-input" placeholder="01/31/15">
+                  <label for="date2" class="field-icon">
+                    <i class="fa fa-calendar"></i>
+                  </label>
+                </label>
+              </div>
+            </div>
+
+            <h5><small>Search Categories</small></h5>
+            <div class="section mb15">
+              <label class="field select">
+                <select id="filter-categories" name="filter-categories">
+                  <option value="0" selected="selected">Filter by Categories</option>
+                  <option value="1">Electronics</option>
+                  <option value="2">Software</option>
+                </select>
+                <i class="arrow double"></i>
+              </label>
+            </div>
+
+            <h5><small>Search Customers</small></h5>
+            <div class="section">
+              <label class="field select">
+                <select id="filter-customers" name="filter-customers">
+                  <option value="0" selected="selected">Filter by Customer</option>
+                  <option value="1">Michael</option>
+                  <option value="2">David</option>
+                  <option value="3">Sara</option>
+                  <option value="4">Tasha</option>
+                </select>
+                <i class="arrow double"></i>
+              </label>
+            </div>
+
+            <hr class="short">
+
+            <div class="section">
+                <button class="btn btn-default btn-sm ph25" type="button">Search</button>
+                <label class="field option ml15">
+                  <input type="checkbox" name="info">
+                  <span class="checkbox"></span>
+                  <span class="text-muted">Save Search</span>
+                </label>
+            </div>
+
+          </div>
+
+        </aside>
+        <!-- end: .tray-right -->
+
+
+
+{% endblock %}

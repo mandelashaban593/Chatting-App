@@ -1,0 +1,44 @@
+{% extends 'dashboard_base.html' %}
+
+{% block content %}
+<div class="tray tray-center">
+  <div class="row-fluid">
+    <form class="form-vertical" method="GET" action="#">
+    <div class="col-sm-4 col-xl-3">
+      <!-- <div class="panel panel-tile text-center br-a br-grey">
+      <h2>one</h2>
+      </div> -->
+      <div class="span2">
+      <label class="control-label" for="basicinput">Country</label>
+      <div class="controls">
+        <div class="input-appendspan11">
+          <select name="ctry" class="span12">
+}
+          <option value="All">----</option>
+
+
+          </select>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-xl-3">
+      <div class="span2">
+      <label class="control-label" for="basicinput">Bill type</label>
+      <div class="controls">
+        <div class="input-appendspan11">
+          <select name="ctry" class="span12">
+
+          <option value="All">----</option>
+
+          </select>
+        </div>
+      </div>
+      </div>
+
+    </div>
+
+  </form>
+  </div>
+</div>
+{% endblock %}
